@@ -32,7 +32,7 @@ This project analyzes **pre-throw separation-based pressure metrics** to diagnos
 
 This repository serves as:
 - **Competition Submission:** NFL Big Data Bowl 2026 Analytics Challenge
-- **Learning Portfolio:** Demonstrating ML/Data Science best practices in Python
+- **Learning Portfolio:** Demonstrating ML/Data Science practices in Python
 - **Football Analytics Research:** Novel route-stratified pressure analysis framework
 
 **Focus:** Pattern diagnosis and insight generation rather than predictive modeling. The goal is understanding *which* pressure dimensions matter for different play types, not predicting individual pass outcomes.
@@ -63,6 +63,56 @@ Route-Stratified-Seperation-based-Diagnose-Pass-Outcome/
 ├── requirements.txt                               # Python dependencies
 ├── NFLProject_writeup_md.txt                      # Detailed findings writeup
 └── README.md                                      # This file
+```
+
+## 🚀 Quick Start Guide
+
+### Prerequisites
+- Python 3.8 or higher
+- pip package manager
+- Jupyter Notebook or JupyterLab
+
+### Installation
+
+1. **Clone the repository:**
+```bash
+git clone https://github.com/Hsotuhsa-S/Route-Stratified-Seperation-based-Diagnose-Pass-Outcome.git
+cd Route-Stratified-Seperation-based-Diagnose-Pass-Outcome
+```
+
+2. **Install dependencies:**
+```bash
+pip install -r requirements.txt
+```
+
+3. **Verify data files exist:**
+```bash
+ls data/input/  # Should show input_2023_w01.csv through input_2023_w18.csv
+ls data/supplementary_data.csv
+```
+
+### Running the Analysis
+
+**Step 1: Feature Engineering**
+```bash
+jupyter notebook 01_FeatureEnginnering_seperationBased.ipynb
+```
+- Run all cells sequentially (Cell → Run All)
+- Creates `data/output/final_ml_features_with_component_scores.csv`
+
+**Step 2: Evaluation & Analysis**
+```bash
+jupyter notebook 02_Features_Evaluation_3Way.ipynb
+```
+- Run all cells sequentially
+- Generates visualizations in `figures/` directory
+
+### Output Verification
+
+After running both notebooks, verify:
+```bash
+ls data/output/final_ml_features_with_component_scores.csv  # Feature file created
+ls figures/*.png  # Should show 10+ visualization files
 ```
 
 ---
@@ -159,57 +209,7 @@ Route-Stratified-Seperation-based-Diagnose-Pass-Outcome/
 
 ---
 
-## 🚀 Quick Start Guide
 
-### Prerequisites
-- Python 3.8 or higher
-- pip package manager
-- Jupyter Notebook or JupyterLab
-
-### Installation
-
-1. **Clone the repository:**
-```bash
-git clone https://github.com/Hsotuhsa-S/Route-Stratified-Seperation-based-Diagnose-Pass-Outcome.git
-cd Route-Stratified-Seperation-based-Diagnose-Pass-Outcome
-```
-
-2. **Install dependencies:**
-```bash
-pip install -r requirements.txt
-```
-
-3. **Verify data files exist:**
-```bash
-ls data/input/  # Should show input_2023_w01.csv through input_2023_w18.csv
-ls data/supplementary_data.csv
-```
-
-### Running the Analysis
-
-**Step 1: Feature Engineering**
-```bash
-jupyter notebook 01_FeatureEnginnering_seperationBased.ipynb
-```
-- Run all cells sequentially (Cell → Run All)
-- Expected runtime: ~5-10 minutes
-- Creates `data/output/final_ml_features_with_component_scores.csv`
-
-**Step 2: Evaluation & Analysis**
-```bash
-jupyter notebook 02_Features_Evaluation_3Way.ipynb
-```
-- Run all cells sequentially
-- Expected runtime: ~3-5 minutes
-- Generates visualizations in `figures/` directory
-
-### Output Verification
-
-After running both notebooks, verify:
-```bash
-ls data/output/final_ml_features_with_component_scores.csv  # Feature file created
-ls figures/*.png  # Should show 10+ visualization files
-```
 
 ---
 
@@ -275,62 +275,6 @@ df['separation_velocity'] = df.groupby(['game_id', 'play_id', 'nfl_id'])['qb_min
 
 ---
 
-## 📚 Code Quality Standards
-
-This project demonstrates ML/Data Science best practices:
-
-### 1. **Clean Code Principles**
-- Descriptive variable names (`qb_min_separation` not `dist`)
-- Modular functions with single responsibilities
-- Type hints for function parameters
-- Consistent naming conventions (snake_case)
-
-### 2. **Comprehensive Documentation**
-- Docstrings following NumPy/Google style:
-  - Function purpose
-  - Parameter descriptions with types
-  - Return value specifications
-  - Usage examples
-  - Notes on edge cases
-
-Example:
-```python
-def calculate_frame_level_separation_qb(df):
-    """
-    Calculate minimum separation between QB and defensive players at FRAME level.
-    
-    Parameters
-    ----------
-    df : pd.DataFrame
-        Tracking data with columns: game_id, play_id, frame_id, nfl_id,
-        player_role, x, y
-    
-    Returns
-    -------
-    pd.DataFrame
-        QB data with qb_min_separation per frame
-    
-    Notes
-    -----
-    - Handles missing defenders (returns 999.0 = no pressure)
-    - Uses vectorized distance calculations for performance
-    """
-```
-
-### 3. **Reproducibility**
-- Fixed random seeds (`RANDOM_STATE = 42`)
-- Versioned dependencies (`requirements.txt`)
-- Clear execution order (numbered notebooks)
-- Configuration constants at top of notebooks
-
-### 4. **Visualization Standards**
-- High-resolution exports (300 DPI)
-- Color-blind friendly palettes
-- Percentage labels on bars
-- Statistical annotations (means, medians)
-- Descriptive titles and axis labels
-
----
 
 ## 🔧 Dependencies
 
@@ -347,32 +291,6 @@ Full requirements: [requirements.txt](requirements.txt)
 
 ---
 
-## 📖 Further Reading
-
-### Project Documentation
-- **[NFLProject_writeup_md.txt](NFLProject_writeup_md.txt)** - Complete analysis writeup with football context and coaching implications
-
-### External Resources
-- [NFL Big Data Bowl 2026 Competition](https://www.kaggle.com/c/nfl-big-data-bowl-2026-analytics)
-- [NFL Next Gen Stats](https://nextgenstats.nfl.com/)
-- [Scikit-Learn Documentation](https://scikit-learn.org/stable/)
-
----
-
-## 🤝 Contributing
-
-This is a competition submission and learning project. While pull requests are not actively monitored, feel free to:
-- Fork the repository for your own analysis
-- Adapt the methodology for other football datasets
-- Use the feature engineering framework as a template
-
----
-
-## 📄 License
-
-This project is provided for educational and research purposes. NFL tracking data is subject to [Kaggle Competition Rules](https://www.kaggle.com/c/nfl-big-data-bowl-2026-analytics/rules).
-
----
 
 ## 👤 Author
 
@@ -381,13 +299,3 @@ This project is provided for educational and research purposes. NFL tracking dat
 *Project created as part of the NFL Big Data Bowl 2026 Analytics Challenge and for Machine Learning/Data Science practice.*
 
 ---
-
-## 🏆 Acknowledgments
-
-- NFL Big Data Bowl organizers for providing tracking data
-- Scikit-Learn contributors for ML infrastructure
-- Football analytics community for domain knowledge
-
----
-
-**Last Updated:** December 2025
