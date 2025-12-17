@@ -61,7 +61,6 @@ Route-Stratified-Seperation-based-Diagnose-Pass-Outcome/
 ├── 01_FeatureEnginnering_seperationBased.ipynb                      # 01-Feature creation pipeline
 ├── 02_Features_Evaluation_3Way.ipynb                                 # 02-Model evaluation & analysis
 ├── requirements.txt                                                 # Python dependencies
-├── NFLProject_writeup_md.txt                                        # Detailed findings writeup
 └── README.md                                                        # This file
 └── Route-Stratified_PreThrow_Pressure_Diagnose_Pass-Outcome.ipynb   # Feature creation pipeline and features Evaluation-Analysis -Step 01 and 02 together
 
