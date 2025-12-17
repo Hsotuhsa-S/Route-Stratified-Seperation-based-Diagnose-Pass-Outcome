@@ -294,7 +294,7 @@ Full requirements: [requirements.txt](requirements.txt)
 
 ## 👤 Author
 
-**Hsotuhsa-S**
+**Ashutosh Shirsat(Hsotuhsa-S) and Sheetalkumar Mehta**
 
 *Project created as part of the NFL Big Data Bowl 2026 Analytics Challenge and for Machine Learning/Data Science practice.*
 
